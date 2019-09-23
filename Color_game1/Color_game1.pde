@@ -1,3 +1,6 @@
+ArrayList<PImage> gif; //declaration
+int n = 0;
+
 int mode;
 final int intro = 0;
 final int game = 1;
@@ -11,6 +14,7 @@ color yellow = #F0EC77;
 color green = #A2F077;
 color blue = #77ACF0;
 color purple = #CD93EA;
+PFont font;
 
 color[] colors =  {red, orange, yellow, green, blue, purple};
 
@@ -30,16 +34,32 @@ String[] colorWords = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE"};
 
 
 void setup() {
+  gif = new ArrayList<PImage>(72);
+  int i = 0;
+  String zero;
+  while (i <= 71) {
+    if (i<10) {
+      zero = "0";
+    } else {
+      zero = "";
+    }
+    PImage temp = loadImage("frame_" + zero + i + "_delay-0.03s.gif");
+    gif.add(temp);
+    i++;
+  }
+  font = createFont("SuperMario256.ttf", 5);
+  textFont(font);
   textAlign(CENTER, CENTER);
   textSize(70);
   size(600, 600);
 
-//  println("rng = " + rng);
-//  println("choice = " + choice);
+  //  println("rng = " + rng);
+  //  println("choice = " + choice);
 
-//  println("colors[choice] = " + colors[choice]);
-//  println("colorWords[rng] = " + colorWords[rng]);
+  //  println("colors[choice] = " + colors[choice]);
+  //  println("colorWords[rng] = " + colorWords[rng]);
 }
+
 void draw() {
   if (mode == intro) {
     intro();
