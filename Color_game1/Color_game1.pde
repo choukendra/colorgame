@@ -32,7 +32,6 @@ String[] colorWords = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE"};
 //words.add("PURPLE");
 //words.add("PINK");
 
-
 void setup() {
   gif = new ArrayList<PImage>(72);
   int i = 0;
@@ -43,7 +42,8 @@ void setup() {
     } else {
       zero = "";
     }
-    PImage temp = loadImage("frame_" + zero + i + "_delay-0.03s.gif");
+    PImage temp = loadImage("frame_" + zero + i + "_delay-0.03s.jpg");
+    temp.resize(width, height);
     gif.add(temp);
     i++;
   }
